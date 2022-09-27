@@ -1,11 +1,12 @@
 ﻿using ShopOnline.Api.Entities;
 using ShopOnline.Models.Dtos;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ShopOnline.Api.Extensions
 {
     public static class DtoConversions
     {
-        public static IEnumerable<ProductDto> ConvertToDto(this IEnumerable<Product> products, IEnumerable<ProductCategory> productCategories )
+        public static IEnumerable<ProductDto> ConvertToDto(this IEnumerable<Product> products,IEnumerable<ProductCategory> productCategories)
         {
             return (from product in products
                     join ProductCategory in productCategories
@@ -23,5 +24,19 @@ namespace ShopOnline.Api.Extensions
                     }).ToList();
 
         }
-    }
+        public static ProductDto ConvertToDto(this Product product, ProductCategory productCategory)
+        {
+            return new ProductDto
+            {
+                Id=product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                ImageURL = product.ImageURL,
+                Price = product.Price,
+                Qty = product.Qty,
+                CategoryId = product.CategoryId,
+                CategoryName = productCategory.Name
+            };
+        }
+     }
 }

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Content Remove="Pages\DisplayProducts.razor" />
+    <Content Remove="Pages\ProductDetails.razor" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,14 +22,20 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\DisplayProducts.razor" />
+    <_ContentIncludedByDefault Remove="Pages\ProductDetails.razor" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="Pages\DisplayProducts.razor" />
+    <None Include="Pages\ProductDetails.razor" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ShopOnline.Models\ShopOnline.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\ProductDetails.razor" />
   </ItemGroup>
 
 </Project>

@@ -17,24 +17,25 @@ namespace ShopOnline.Api.Controllers
             this.productRepository = productRepository;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductDto>>> GetItems()
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<ProductDto>> GetItem(int id)
         {
             try
             {
-                var products = await this.productRepository.GetItems();
-                var productCategories = await this.productRepository.GetCategories();
+                var product = await this.productRepository.GetItem(id);               
 
 
-                if (products == null || productCategories == null)
+                if (product == null)
                 {
-                    return NotFound();
+                    return BadRequest();
                 }
                 else
                 {
-                    var productDtos = products.ConvertToDto(productCategories);
+                    var productCategory = await this.productRepository.GetCategory(product.CategoryId);
 
-                    return Ok(productDtos);
+                    var productDto = product.ConvertToDto(productCategory);
+
+                    return Ok(productDto);
                 }
 
             }
