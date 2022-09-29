@@ -29,9 +29,9 @@ namespace ShopOnline.Api.Repositories
 
         public async Task<Product> GetItem(int id)
         {
-            var product = await shopOnlineDbContext.Products.FindAsync(id);
-                                //.Include(p => p.ProductCategory)
-                                //.SingleOrDefaultAsync(p => p.Id == id);
+            var product = await shopOnlineDbContext.Products
+                                .Include(p => p.ProductCategory)
+                                .SingleOrDefaultAsync(p => p.Id == id);
             return product;
         }
 

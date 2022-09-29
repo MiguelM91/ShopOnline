@@ -13,9 +13,8 @@ namespace ShopOnline.Api.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
             //Products
-            //Sábanas para cama sencilla 1
+            //Sábanas cama sencilla
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 Id = 1,

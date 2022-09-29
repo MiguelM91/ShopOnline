@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopOnline.Models.Dtos
 {
-    internal class CartItemDto
+    public class CartItemDto
     {
         public int Id { get; set; }
         public int ProductId { get; set; }
@@ -17,5 +17,6 @@ namespace ShopOnline.Models.Dtos
         public decimal Price { get; set; }
         public decimal TotalPrice { get; set; }
         public int Qty { get; set; }
+
     }
 }

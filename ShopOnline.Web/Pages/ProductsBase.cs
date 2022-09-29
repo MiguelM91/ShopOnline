@@ -9,8 +9,8 @@ namespace ShopOnline.Web.Pages
         [Inject]
         public IProductService ProductService { get; set; }
 
-        //[Inject]
-        //public IShoppingCartService ShoppingCartService { get; set; }
+        [Inject]
+        public IShoppingCartService ShoppingCartService { get; set; }
 
         //[Inject]
         //public IManageProductsLocalStorageService ManageProductsLocalStorageService { get; set; }
@@ -25,28 +25,32 @@ namespace ShopOnline.Web.Pages
 
         public string ErrorMessage { get; set; }
 
-        //protected override async Task OnInitializedAsync()
-        //{
-        //    try
-        //    {
-        //        await ClearLocalStorage();
+        protected override async Task OnInitializedAsync()
+        {
+            try
+            {
+                //await ClearLocalStorage();
 
-        //        Products = await ManageProductsLocalStorageService.GetCollection();
+                //Products = await ManageProductsLocalStorageService.GetCollection();
 
-        //        var shoppingCartItems = await ManageCartItemsLocalStorageService.GetCollection();
+                Products = await ProductService.GetItems();
 
-        //        var totalQty = shoppingCartItems.Sum(i => i.Qty);
+                //var shoppingCartItems = await ManageCartItemsLocalStorageService.GetCollection();
 
-        //        ShoppingCartService.RaiseEventOnShoppingCartChanged(totalQty);
+                var shoppingCartItems = await ShoppingCartService.GetItems(HardCoded.UserId);
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        ErrorMessage = ex.Message;
+                var totalQty = shoppingCartItems.Sum(i => i.Qty);
 
-        //    }
+                ShoppingCartService.RaiseEventOnShoppingCartChanged(totalQty);
 
-        //}
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message;
+
+            }
+
+        }
 
         protected IOrderedEnumerable<IGrouping<int, ProductDto>> GetGroupedProductsByCategory()
         {

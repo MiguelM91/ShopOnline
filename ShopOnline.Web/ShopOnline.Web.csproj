@@ -9,11 +9,13 @@
   <ItemGroup>
     <Content Remove="Pages\DisplayProducts.razor" />
     <Content Remove="Pages\ProductDetails.razor" />
+    <Content Remove="Pages\ShoppingCart.razor" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.8" PrivateAssets="all" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,11 +25,13 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\DisplayProducts.razor" />
     <_ContentIncludedByDefault Remove="Pages\ProductDetails.razor" />
+    <_ContentIncludedByDefault Remove="Pages\ShoppingCart.razor" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="Pages\DisplayProducts.razor" />
     <None Include="Pages\ProductDetails.razor" />
+    <None Include="Pages\ShoppingCart.razor" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +40,10 @@
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Pages\ProductDetails.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\ShoppingCart.razor" />
   </ItemGroup>
 
 </Project>
