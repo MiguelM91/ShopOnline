@@ -1,4 +1,4 @@
-﻿page "/ShoppingCart"
+﻿@page "/ShoppingCart"
 @inherits ShoppingCartBase
 
 @if (ShoppingCartItems == null && ErrorMessage == null)
@@ -55,7 +55,12 @@ else
     }
     else
     {
-        <h4>Actualmente no tiene productos agregados a su carrito de compras</h4>
+        <h4>There are currently no items in your shopping cart</h4>
     }
 
 }
+
+
+
+
+

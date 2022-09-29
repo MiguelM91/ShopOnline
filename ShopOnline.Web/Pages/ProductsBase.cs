@@ -12,11 +12,11 @@ namespace ShopOnline.Web.Pages
         [Inject]
         public IShoppingCartService ShoppingCartService { get; set; }
 
-        //[Inject]
-        //public IManageProductsLocalStorageService ManageProductsLocalStorageService { get; set; }
+        [Inject]
+        public IManageProductsLocalStorageService ManageProductsLocalStorageService { get; set; }
 
-        //[Inject]
-        //public IManageCartItemsLocalStorageService ManageCartItemsLocalStorageService { get; set; }
+        [Inject]
+        public IManageCartItemsLocalStorageService ManageCartItemsLocalStorageService { get; set; }
 
         public IEnumerable<ProductDto> Products { get; set; }
 
@@ -29,15 +29,11 @@ namespace ShopOnline.Web.Pages
         {
             try
             {
-                //await ClearLocalStorage();
+                await ClearLocalStorage();
 
-                //Products = await ManageProductsLocalStorageService.GetCollection();
+                Products = await ManageProductsLocalStorageService.GetCollection();
 
-                Products = await ProductService.GetItems();
-
-                //var shoppingCartItems = await ManageCartItemsLocalStorageService.GetCollection();
-
-                var shoppingCartItems = await ShoppingCartService.GetItems(HardCoded.UserId);
+                var shoppingCartItems = await ManageCartItemsLocalStorageService.GetCollection();
 
                 var totalQty = shoppingCartItems.Sum(i => i.Qty);
 
@@ -64,11 +60,11 @@ namespace ShopOnline.Web.Pages
             return groupedProductDtos.FirstOrDefault(pg => pg.CategoryId == groupedProductDtos.Key).CategoryName;
         }
 
-        //private async Task ClearLocalStorage()
-        //{
-        //    await ManageProductsLocalStorageService.RemoveCollection();
-        //    await ManageCartItemsLocalStorageService.RemoveCollection();
-        //}
+        private async Task ClearLocalStorage()
+        {
+            await ManageProductsLocalStorageService.RemoveCollection();
+            await ManageCartItemsLocalStorageService.RemoveCollection();
+        }
 
     }
 }

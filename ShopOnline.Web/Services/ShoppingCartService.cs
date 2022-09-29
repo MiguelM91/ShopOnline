@@ -3,21 +3,19 @@ using ShopOnline.Models.Dtos;
 using ShopOnline.Web.Services.Contracts;
 using System.Net.Http.Json;
 using System.Text;
-using System.Text.Json.Serialization;
 
 namespace ShopOnline.Web.Services
 {
     public class ShoppingCartService : IShoppingCartService
     {
         private readonly HttpClient httpClient;
+
         public event Action<int> OnShoppingCartChanged;
 
         public ShoppingCartService(HttpClient httpClient)
         {
             this.httpClient = httpClient;
         }
-
-        
 
         public async Task<CartItemDto> AddItem(CartItemToAddDto cartItemToAddDto)
         {

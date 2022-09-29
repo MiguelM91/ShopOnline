@@ -12,7 +12,7 @@ namespace ShopOnline.Api.Extensions
                     {
                         Id = productCategory.Id,
                         Name = productCategory.Name,
-                        //IconCSS = productCategory.IconCSS
+                        IconCSS = productCategory.IconCSS
                     }).ToList();
         }
         public static IEnumerable<ProductDto> ConvertToDto(this IEnumerable<Product> products)

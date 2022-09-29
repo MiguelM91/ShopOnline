@@ -1,4 +1,5 @@
-﻿function MakeUpdateQtyButtonVisible(id, visible) {
+﻿function MakeUpdateQtyButtonVisible(id, visible)
+{
     const updateQtyButton = document.querySelector("button[data-itemId='" + id + "']");
 
     if (visible == true) {

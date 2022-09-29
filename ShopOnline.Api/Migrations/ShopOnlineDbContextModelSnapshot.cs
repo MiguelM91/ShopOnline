@@ -347,6 +347,10 @@ namespace ShopOnline.Api.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("IconCSS")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -359,22 +363,26 @@ namespace ShopOnline.Api.Migrations
                         new
                         {
                             Id = 1,
-                            Name = "Sábanas colchón cama sencilla"
+                            IconCSS = "fa fa-bed",
+                            Name = "Sábanas colchón sencillo"
                         },
                         new
                         {
                             Id = 2,
-                            Name = "Sábanas colchón cama semi doble"
+                            IconCSS = "fa fa-bed",
+                            Name = "Sábanas colchón semi doble"
                         },
                         new
                         {
                             Id = 3,
-                            Name = "Sábanas colchón cama doble"
+                            IconCSS = "fa fa-bed",
+                            Name = "Sábanas colchón doble"
                         },
                         new
                         {
                             Id = 4,
-                            Name = "Protectores colchón cama sencilla"
+                            IconCSS = "fa fa-bed",
+                            Name = "Protectores colchón sencillo"
                         });
                 });
 
