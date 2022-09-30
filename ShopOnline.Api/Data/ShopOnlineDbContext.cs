@@ -291,25 +291,25 @@ namespace ShopOnline.Api.Data
             modelBuilder.Entity<ProductCategory>().HasData(new ProductCategory
             {
                 Id = 1,
-                Name = "Sábanas colchón sencillo",
+                Name = "Sábanas sencillas",
                 IconCSS = "fa fa-bed"
             });
             modelBuilder.Entity<ProductCategory>().HasData(new ProductCategory
             {
                 Id = 2,
-                Name = "Sábanas colchón semi doble",
+                Name = "Sábanas semidobles",
                 IconCSS = "fa fa-bed"
             });
             modelBuilder.Entity<ProductCategory>().HasData(new ProductCategory
             {
                 Id = 3,
-                Name = "Sábanas colchón doble",
+                Name = "Sábanas dobles",
                 IconCSS = "fa fa-bed"
             });
             modelBuilder.Entity<ProductCategory>().HasData(new ProductCategory
             {
                 Id = 4,
-                Name = "Protectores colchón sencillo",
+                Name = "Protector sencillo",
                 IconCSS = "fa fa-bed"
             });
 
